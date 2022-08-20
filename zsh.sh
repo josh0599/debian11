@@ -5,14 +5,14 @@ while [ $opc -ne 6 ] ; do
 
 clear
 
-echo 1. Instalar OhMyZSH
-echo 2. Establecer ZSH como shell por defecto
-echo 3. Usuario por defecto Lightdm
-echo 4. zsh-autosuggestions
-echo 5. zsh-syntax-highlighting
-echo 6. salir
+echo 1. Install OhMyZSH
+echo 2. Default shell: zsh
+echo 3. Configure user: Lightdm
+echo 4. Install zsh-autosuggestions
+echo 5. Install zsh-syntax-highlighting
+echo 6. Exit
 echo
-read -p "Seleccione una opcion: " opc
+read -p "select an option " opc
 
 case $opc in
 
@@ -31,10 +31,10 @@ case $opc in
 5) clear
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 	;;
-6) echo Saliendo...
+6) echo bye!
 	;;
 *) clear
-	echo Error al elegir opciones
+	echo Invalid option
 	;;
 esac
 done

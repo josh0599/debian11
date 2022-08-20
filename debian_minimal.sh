@@ -1,21 +1,26 @@
 #!/bin/bash
 #Autor: Josh
 opc=0
-while [ $opc -ne 11 ] ; do
+while [ $opc -ne 16 ] ; do
 
 clear
 
-echo 1. Instalar sudo
-echo 2. Abrir usuario a sudoers
-echo 3. Abrir sources.list: add contrib/non-free/BackPorts
-echo 4. No instalar Recomendaciones y Sugeridos
-echo 5. Instalar sistema base
-echo 6. Instalar entorno de escritorio Xfce4
-echo 7. Instalar soporte bluetooth y WiFi
-echo 8. Instalar soporte multimedia
-echo 9. Personalizacion: fuentes
-echo 10. Ofimatica y Redes Sociales
-echo 11. Salir
+echo 1. Install sudo
+echo 2. Add user to sudoers
+echo 3. Open sources.list: add contrib/non-free/BackPorts
+echo 4. Not install Recommendas and Suggests
+echo 5. Install System base: xorg, mtp and ntfs support, git
+echo 6. Install desktop enviroment: Xfce4
+echo 7. Install bluetooth support
+echo 8. Install Network-manager
+echo 9. Install WiFi drivers: Realtek only
+echo 10. Install multimedia support and apps: rhythmbox, vlc and codecs
+echo 11. Install fonts: ms-fonts, noto-fonts, ubuntu-fonts
+echo 12. Install Browser: firefox
+echo 13: Install Office apps: LibreOffice
+echo 14. Install Social apps: Telegram
+echo 15. Customization: zsh, neofetch, htop, qt5 support
+echo 16. Exit
 echo
 read -p "Seleccione una opcion: " opc
 
@@ -34,26 +39,41 @@ case $opc in
 	cp 01norecommend /etc/apt/apt.conf.d/
 	;;
 5) clear
-	apt install xserver-xorg-core xserver-xorg-input-all mtp-tools ntfs-3g gdebi gvfs gvfs-libs synaptic gnupg git build-essential make automake cmake autoconf wget hplip libatk-adaptor libgail-common gnome-themes-standard at-spi2-core meson libgirepository1.0-dev libgtk-3-dev python3 python3-gi gir1.2-rsvg-2.0 librsvg2-bin gir1.2-gtk-3.0 curl apt-transport-https p7zip-full policykit-1-gnome default-jdk system-config-printer
+	apt update && apt install xserver-xorg-core xserver-xorg-input-all mtp-tools ntfs-3g gvfs gvfs-libs gnome-keyring gvfs-backends gnupg git build-essential make automake cmake autoconf wget hplip libatk-adaptor libgail-common gnome-themes-standard at-spi2-core meson libgirepository1.0-dev libgtk-3-dev python3 python3-gi gir1.2-rsvg-2.0 librsvg2-bin gir1.2-gtk-3.0 curl apt-transport-https p7zip-full rar unrar policykit-1-gnome default-jdk system-config-printer
 	;;
 6) clear
-	apt install lightdm lightdm-gtk-greeter-settings xfce4 xfce4-notifyd  xfce4-power-manager-plugins thunar-archive-plugin xarchiver ristretto tumbler neovim xfce4-screenshooter terminator simple-scan cheese atril firefox-esr-l10n-es-mx mousepad
+	apt install lightdm lightdm-gtk-greeter-settings light-locker xfce4 xfce4-notifyd gdebi synaptic xfce4-power-manager-plugins thunar-archive-plugin xarchiver ristretto tumbler neovim xfce4-screenshooter terminator simple-scan cheese atril mousepad
 	;;
 7) clear
-	apt install firmware-realtek bluez blueman network-manager network-manager-gnome
+	apt install bluetooth bluez blueman
 	;;
 8) clear
-	apt install pulseaudio alsa-tools pulseaudio-utils pulseaudio-module-bluetooth pavucontrol vlc vlc-l10n rhythmbox rhythmbox-plugins rhythmbox-plugin-alternative-toolbar gstreamer1.0-alsa gstreamer1.0-pulseaudio gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-x gstreamer1.0-gtk3 gstreamer1.0-gl
+	apt install network-manager network-manager-gnome
 	;;
 9) clear
-	apt install fonts-agave ttf-mscorefonts-installer fonts-noto-color-emoji fonts-noto-cjk fonts-ubuntu fonts-cascadia-code plank qt5ct qt5-style-plugins gtk2-engines-murrine gtk2-engines-pixbuf zsh htop neofetch
+	apt install firmware-realtek 
 	;;
 10) clear
-	sudo apt -t bullseye-backports install aspell-es hunspell-es libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-l10n-es libreoffice-gtk3 telegram-desktop
+	apt install pulseaudio alsa-tools pulseaudio-utils pulseaudio-module-bluetooth pavucontrol vlc vlc-l10n rhythmbox rhythmbox-plugins rhythmbox-plugin-alternative-toolbar gstreamer1.0-alsa gstreamer1.0-pulseaudio gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-x gstreamer1.0-gtk3 gstreamer1.0-gl
 	;;
-11) echo Saliendo...
+11) clear
+	apt install fonts-agave ttf-mscorefonts-installer fonts-noto-color-emoji fonts-noto-cjk fonts-ubuntu fonts-cascadia-code
 	;;
-*) echo $opc no es una opcion valida
+12) clear
+	apt install firefox-esr-l10n-es-mx
+	;;
+13) clear
+	apt -t bullseye-backports install aspell-es hunspell-es libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-l10n-es libreoffice-gtk3
+	;;
+14) clear
+	apt -t bullseye-backports install telegram-desktop
+	;;
+15) clear
+	apt install plank qt5ct qt5-style-plugins gtk2-engines-murrine gtk2-engines-pixbuf zsh htop neofetch
+	;;
+16) echo bye!
+	;;
+*) echo $opc is not a valid option
 	;;
 esac
 done
