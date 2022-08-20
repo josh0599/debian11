@@ -1,0 +1,35 @@
+[global_config]
+  dbus = False
+  focus = mouse
+  title_hide_sizetext = True
+  inactive_color_offset = 0.9150326797385621
+  suppress_multiple_term_dialog = True
+[keybindings]
+  split_horiz = <Primary>Down
+  split_vert = <Primary>Right
+  close_term = <Primary>q
+  copy = <Primary>c
+  paste = <Primary>v
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#1e1e1e"
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_shape = underline
+    cursor_color = "#aaaaaa"
+    foreground_color = "#f5f5f5"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#262626:#e356a7:#42e66c:#e4f34a:#9b6bdf:#e64747:#75d7ec:#efa554:#7a7a7a:#ff79c6:#50fa7b:#f1fa8c:#bd93f9:#ff5555:#8be9fd:#ffb86c"
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+      size = 740, 380
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
