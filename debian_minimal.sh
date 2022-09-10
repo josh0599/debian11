@@ -42,7 +42,7 @@ case $opc in
 	apt update && apt install xserver-xorg-core xserver-xorg-input-all mtp-tools ntfs-3g gvfs gvfs-libs gnome-keyring gvfs-backends gnupg git build-essential make automake cmake autoconf wget hplip libatk-adaptor libgail-common gnome-themes-standard at-spi2-core meson libgirepository1.0-dev libgtk-3-dev python3 python3-gi gir1.2-rsvg-2.0 librsvg2-bin gir1.2-gtk-3.0 curl apt-transport-https p7zip-full rar unrar policykit-1-gnome default-jdk system-config-printer
 	;;
 6) clear
-	apt install lightdm lightdm-gtk-greeter-settings light-locker xfce4 xfce4-notifyd gdebi synaptic xfce4-power-manager-plugins thunar-archive-plugin xarchiver ristretto tumbler neovim xfce4-screenshooter terminator simple-scan cheese atril mousepad
+	apt install lightdm lightdm-gtk-greeter-settings light-locker xfce4 xfce4-notifyd synaptic xfce4-power-manager-plugins thunar-archive-plugin xarchiver ristretto tumbler xfce4-screenshooter terminator simple-scan cheese atril mousepad
 	;;
 7) clear
 	apt install bluetooth bluez blueman
